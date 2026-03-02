@@ -4,7 +4,7 @@
     {
         static void DisplayMenu()
         {
-            Console.Write("Options:\n1. Create new character\n2. View all characters\n3. Search characters\n4. Display character summary statistics\n5. Exit\n\nEnter choice: ");
+            Console.Write("Options:\n1. Create new character\n2. View all characters\n3. Search characters\n4. Display character statistics\n5. Exit\n\nEnter choice: ");
         }
 
         static void Main(string[] args)
@@ -19,7 +19,7 @@
                 {
                     int choice = int.Parse(Console.ReadLine());
 
-                    if (choice >= 1 && choice <= 3)
+                    if (choice >= 1 && choice <= 5)
                     {
                         switch (choice)
                         {
@@ -37,6 +37,11 @@
 
                             case 4:
 
+                                break;
+
+                            case 5:
+                                Console.WriteLine("\nThat was fun. Goodbye!");
+                                Environment.Exit(0);
                                 break;
                         }
                     }
