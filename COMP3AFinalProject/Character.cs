@@ -5,16 +5,13 @@ using System.Text;
 
 namespace COMP3AFinalProject
 {
-    internal class Character
+    public class Character
     {
         public Character()
         {
 
         }
 
-        public void DisplayMenu()
-        {
-            Console.WriteLine("Options:\n1. ");
-        }
+        
     }
 }
