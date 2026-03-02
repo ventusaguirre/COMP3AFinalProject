@@ -1,4 +1,6 @@
-﻿namespace COMP3AFinalProject
+﻿using System.ComponentModel;
+
+namespace COMP3AFinalProject
 {
     internal class Program
     {
@@ -9,7 +11,7 @@
 
         static void Main(string[] args)
         {
-            Console.WriteLine("***Game Character Creation System***\n");
+            Console.WriteLine("*******Game Character Creation System*******\n");
 
             DisplayMenu();
 
@@ -24,18 +26,22 @@
                         switch (choice)
                         {
                             case 1:
-
+                                Console.WriteLine("***New Character Creation***\n");
+                                CreateNewCharacter();
                                 break;
 
                             case 2:
-
+                                Console.WriteLine("***Current Character List***\n");
+                                
                                 break;
 
                             case 3:
-
+                                Console.WriteLine("***Search Characters***");
+                                
                                 break;
 
                             case 4:
+                                Console.WriteLine("***Character Statistics***");
 
                                 break;
 
