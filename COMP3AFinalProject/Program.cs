@@ -10,18 +10,16 @@ namespace COMP3AFinalProject
     {
         static void DisplayMenu()
         {
-            Console.Write("Options:\n1. Create new character\n2. View all characters\n3. Search characters\n4. Display character statistics\n5. Exit\n\nEnter choice: ");
+            Console.Write("Welcome to the Game Character Creation System!\n\nOptions:\n1. Create new character\n2. View all characters\n3. Search characters\n4. Display character statistics\n5. Exit\n\nEnter choice: ");
         }
 
 
 
         static void Main(string[] args)
         {
-            Console.WriteLine("*******Game Character Creation System*******\n");
-
             DisplayMenu();
 
-            Character char1 = new Character(4, 4, "NB", 27, 3/*, 7, "green", "brown", "brown", "short", 3, true, true, 4, 1, "playing guitar", true, 9, 6, 8, 7, 5, 7, 6, "Ventus"*/);
+            Character char1 = new Character("faerie", "mage", "NB", 27, 3/*, 7, "green", "brown", "brown", "short", 3, true, true, 4, 1, "playing guitar", true, 9, 6, 8, 7, 5, 7, 6, "Ventus"*/);
 
             List<Character> characterList = new List<Character>();
             characterList.AddRange(new List<Character>() {char1});
@@ -37,12 +35,13 @@ namespace COMP3AFinalProject
                         switch (choice)
                         {
                             case 1:
-                                Console.WriteLine("***New Character Creation***\n");
-                                characterList.Add(CharacterCreation.CreateCharacter()); 
+                                Console.WriteLine("\n***New Character Creation***");
+                                characterList.Add(Character.CreateCharacter()); 
                                 break;
 
                             case 2:
                                 Console.WriteLine("***Current Character List***\n");
+                                Console.Write($"");
                                 break;
 
                             case 3:
