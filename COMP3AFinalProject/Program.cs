@@ -10,10 +10,8 @@ namespace COMP3AFinalProject
     {
         static void DisplayMenu()
         {
-            Console.Write("\nOptions:\n1. Create new character\n2. View all characters\n3. Search characters\n4. Display character statistics\n5. Exit\n\nEnter choice: ");
+            Console.Write("\nOptions:\n1. Create new character\n2. View all characters\n3. Display character stats\n4. Calculate totals/averages\n5. Exit\n\nEnter choice: ");
         }
-
-
 
         static void Main(string[] args)
         {
@@ -23,8 +21,8 @@ namespace COMP3AFinalProject
 
             Character char1 = new Character("faerie", "mage", "NB", 27, 3, 7, "green", "brown", "brown", "short", 3, true, true, 4, 1, "playing guitar", true, 9, 6, 8, 7, 5, 7, 6, "Ventus");
 
-            List<Character> characterList = new List<Character>();
-            characterList.AddRange(new List<Character>() {char1});
+            List<Character> party = new List<Character>();
+            party.AddRange(new List<Character>() {char1});
 
             while (true)
             {
@@ -38,22 +36,42 @@ namespace COMP3AFinalProject
                         {
                             case 1:
                                 Console.WriteLine("\n***New Character Creation***");
-                                characterList.Add(Character.CreateCharacter()); 
+                                party.Add(Character.CreateCharacter()); 
                                 break;
 
                             case 2:
-                                Console.WriteLine("***Current Character List***\n");
-                                
+                                Console.WriteLine("\n***Current Character List***\n");
+                                DisplayAllCharacters(party);
                                 break;
 
                             case 3:
-                                Console.WriteLine("***Search Characters***");
-                                //SearchCharacters();
+                                Console.WriteLine("***Display Character Stats***");
+                                SearchCharacters(party);
                                 break;
 
                             case 4:
-                                Console.WriteLine("***Character Statistics***");
-                                //DisplayCharacterStats();
+                                Console.Write("***Calculate Totals/Averages***\n\nWhat would you like to calculate?\n1. Party strength average\n2. Total magic points\nEnter choice: ");
+                                try
+                                {
+                                    int choice2 = int.Parse(Console.ReadLine());
+
+                                    switch (choice2)
+                                    {
+                                        case 1:
+                                            
+
+                                            break;
+
+                                        case 2:
+                                            
+
+                                            break;
+                                    }
+                                }
+                                catch (FormatException)
+                                {
+                                    Console.Write("Invalid input.");
+                                }
                                 break;
 
                             case 5:
@@ -66,13 +84,51 @@ namespace COMP3AFinalProject
                     {
                         Console.Write("Invalid integer. Enter choice: ");
                     }
+                    
+                    DisplayMenu();
                 }
                 catch (FormatException)
                 {
                     Console.Write("Invalid input. Enter choice: ");
                 }
             }
-        }     
+        }
+        static void DisplayAllCharacters(List<Character> party)
+        {
+            foreach (Character character in party)
+            {
+                Console.WriteLine(character.Name);
+            }
+        }
+
+        static void SearchCharacters(List<Character> party)
+        {
+            Console.Write("\nEnter a character name to search: ");
+            string searchName = Console.ReadLine().ToLower();
+
+            foreach (Character character in party)
+            {
+                if (character.Name.ToLower() == searchName)
+                {
+                    Console.WriteLine($"\nCharacter {character.Name} found!");
+                    character.DisplayCharacterStats(party);
+                    return;
+                }
+            }
+
+            Console.WriteLine("Character not found.");
+        }
+
         
+
+        static void CalculatePartyStrengthAverage(List<Character> party)
+        {
+
+        }
+
+        static void AddPartyMagicPoints(List<Character> party)
+        {
+
+        }
     }
 }

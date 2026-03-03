@@ -74,6 +74,16 @@ namespace COMP3AFinalProject
 
         }
 
+        public void DisplayCharacterStats(List<Character> party)
+        {
+            Console.WriteLine("\n***Character Stats***\n");
+            Console.WriteLine($"Name: {Name}\nRace: {Race}\nClass: {Class}\nGender: {Gender}\nAge: {Age}");
+            Console.WriteLine($"Birth Month: {BirthMonth}\nHair Type: {HairType}\nHair Color: {HairColor}\nEye Color: {EyeColor}\nSkin Color: {SkinColor}");
+            Console.WriteLine($"Height: {Height}\nBody Type: {BodyType}\nTattoos: {Tattoos}\nScars/Birthmarks: {ScarsBirthmarks}\nPersonality Type: {PersonalityType}");
+            Console.WriteLine($"Temperament Type: {Temperament}\nHobbies: {Hobbies}\nCriminal Record: {CriminalRecord}\nIntelligence: {Intelligence}\nStrength: {Strength}");
+            Console.WriteLine($"Magic: {Magic}\nDexterity: {Dexterity}\nSpeed: {Speed}\nLuck: {Luck}\nCharisma: {Charisma}");
+        }
+
         public static Character CreateCharacter()
 
         {
@@ -160,54 +170,75 @@ namespace COMP3AFinalProject
             //age
             while (true)
             {
-                Console.Write("\nEnter character age (10-999): ");
-                int ageChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character age (10-999): ");
+                    int ageChoice = int.Parse(Console.ReadLine());
 
-                if (ageChoice >= 10 && ageChoice <= 999)
-                {
-                    age = ageChoice;
-                    Console.WriteLine($"Character age {age} confirmed.");
-                    break;
+                    if (ageChoice >= 10 && ageChoice <= 999)
+                    {
+                        age = ageChoice;
+                        Console.WriteLine($"Character age {age} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid integer, try again.");
+                    }
                 }
-                else
+                catch (FormatException) 
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input.");
                 }
             }
 
             //birth month
             while (true)
             {
-                Console.Write("\nEnter character birth month (1-12): ");
-                int birthMonthChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character birth month (1-12): ");
+                    int birthMonthChoice = int.Parse(Console.ReadLine());
 
-                if (birthMonthChoice >= 1 && birthMonthChoice <= 12)
-                {
-                    birthMonth = birthMonthChoice;
-                    Console.WriteLine($"Character birth month {birthMonth} confirmed");
-                    break;
+                    if (birthMonthChoice >= 1 && birthMonthChoice <= 12)
+                    {
+                        birthMonth = birthMonthChoice;
+                        Console.WriteLine($"Character birth month {birthMonth} confirmed");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input.");
                 }
             }
 
             //hair type
             while (true)
             {
-                Console.Write("\nChoose character hair type (1-10): ");
-                int hairTypeChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nChoose character hair type (1-10): ");
+                    int hairTypeChoice = int.Parse(Console.ReadLine());
 
-                if (hairTypeChoice >= 1 && hairTypeChoice <= 10)
-                {
-                    hairType = hairTypeChoice;
-                    Console.WriteLine($"Character hair type {hairType} confirmed.");
-                    break;
+                    if (hairTypeChoice >= 1 && hairTypeChoice <= 10)
+                    {
+                        hairType = hairTypeChoice;
+                        Console.WriteLine($"Character hair type {hairType} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
@@ -250,18 +281,25 @@ namespace COMP3AFinalProject
             //body type
             while (true)
             {
-                Console.Write("\nChoose character body type (Enter 1-5): ");
-                int bodyTypeChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nChoose character body type (Enter 1-5): ");
+                    int bodyTypeChoice = int.Parse(Console.ReadLine());
 
-                if (bodyTypeChoice >= 1 && bodyTypeChoice <= 5)
-                {
-                    bodyType = bodyTypeChoice;
-                    Console.WriteLine($"Character body type {bodyType} confirmed.");
-                    break;
+                    if (bodyTypeChoice >= 1 && bodyTypeChoice <= 5)
+                    {
+                        bodyType = bodyTypeChoice;
+                        Console.WriteLine($"Character body type {bodyType} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
@@ -316,36 +354,50 @@ namespace COMP3AFinalProject
             //personality type
             while (true)
             {
-                Console.Write("\nChoose character personality - 1. open, 2. conscientious, 3. extraverted, 4. agreeable, 5. neurotic (Enter 1-5): ");
-                int personalityChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nChoose character personality - 1. open, 2. conscientious, 3. extraverted, 4. agreeable, 5. neurotic (Enter 1-5): ");
+                    int personalityChoice = int.Parse(Console.ReadLine());
 
-                if (personalityChoice >= 1 && personalityChoice <= 5)
-                {
-                    personality = personalityChoice;
-                    Console.WriteLine($"Character personality type {personality} confirmed.");
-                    break;
+                    if (personalityChoice >= 1 && personalityChoice <= 5)
+                    {
+                        personality = personalityChoice;
+                        Console.WriteLine($"Character personality type {personality} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.WriteLine("Invalid input.");
                 }
             }
 
             //temperament
             while (true)
             {
-                Console.Write("\nChoose character temperament - 1. sanguine, 2. choleric, 3. phlegmatic, 4. melancholic (Enter 1-4): ");
-                int temperamentChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nChoose character temperament - 1. sanguine, 2. choleric, 3. phlegmatic, 4. melancholic (Enter 1-4): ");
+                    int temperamentChoice = int.Parse(Console.ReadLine());
 
-                if (temperamentChoice >= 1 && temperamentChoice <= 4)
-                {
-                    temperament = temperamentChoice;
-                    Console.WriteLine($"Character temperament type {temperament} confirmed.");
-                    break;
+                    if (temperamentChoice >= 1 && temperamentChoice <= 4)
+                    {
+                        temperament = temperamentChoice;
+                        Console.WriteLine($"Character temperament type {temperament} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -373,7 +425,7 @@ namespace COMP3AFinalProject
                 else if (crimRecordChoice == "F")
                 {
                     criminalRecord = false;
-                    Console.WriteLine($"Character has scars/birthmarks - {criminalRecord}.");
+                    Console.WriteLine($"Character has criminal record - {criminalRecord}.");
                     break;
                 }
                 else
@@ -385,126 +437,175 @@ namespace COMP3AFinalProject
             //intelligence
             while (true)
             {
-                Console.Write("\nEnter character intelligence (1-10): ");
-                int intelligenceChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character intelligence (1-10): ");
+                    int intelligenceChoice = int.Parse(Console.ReadLine());
 
-                if (intelligenceChoice >= 1 && intelligenceChoice <= 10)
-                {
-                    intelligence = intelligenceChoice;
-                    Console.WriteLine($"Character intelligence level {intelligence} confirmed.");
-                    break;
+                    if (intelligenceChoice >= 1 && intelligenceChoice <= 10)
+                    {
+                        intelligence = intelligenceChoice;
+                        Console.WriteLine($"Character intelligence level {intelligence} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                        Console.Write("Invalid input.");
                 }
             }
 
             //strength
             while (true)
             {
-                Console.Write("\nEnter character strength (1-10): ");
-                int strengthChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character strength (1-10): ");
+                    int strengthChoice = int.Parse(Console.ReadLine());
 
-                if (strengthChoice >= 1 && strengthChoice <= 10)
-                {
-                    strength = strengthChoice;
-                    Console.WriteLine($"Character strength level {strength} confirmed.");
-                    break;
+                    if (strengthChoice >= 1 && strengthChoice <= 10)
+                    {
+                        strength = strengthChoice;
+                        Console.WriteLine($"Character strength level {strength} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
             // magic
             while (true)
             {
-                Console.Write("\nEnter character magic (1-10): ");
-                int magicChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character magic (1-10): ");
+                    int magicChoice = int.Parse(Console.ReadLine());
 
-                if (magicChoice >= 1 && magicChoice <= 10)
-                {
-                    magic = magicChoice;
-                    Console.WriteLine($"Character magic level {magic} confirmed.");
-                    break;
+                    if (magicChoice >= 1 && magicChoice <= 10)
+                    {
+                        magic = magicChoice;
+                        Console.WriteLine($"Character magic level {magic} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
             //dexterity
             while (true)
             {
-                Console.Write("\nEnter character dexterity (1-10): ");
-                int dexterityChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character dexterity (1-10): ");
+                    int dexterityChoice = int.Parse(Console.ReadLine());
 
-                if (dexterityChoice >= 1 && dexterityChoice <= 10)
-                {
-                    dexterity = dexterityChoice;
-                    Console.WriteLine($"Character dexterity level {dexterity} confirmed.");
-                    break;
+                    if (dexterityChoice >= 1 && dexterityChoice <= 10)
+                    {
+                        dexterity = dexterityChoice;
+                        Console.WriteLine($"Character dexterity level {dexterity} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
             //speed
             while (true)
             {
-                Console.Write("\nEnter character speed (1-10): ");
-                int speedChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character speed (1-10): ");
+                    int speedChoice = int.Parse(Console.ReadLine());
 
-                if (speedChoice >= 1 && speedChoice <= 10)
-                {
-                    speed = speedChoice;
-                    Console.WriteLine($"Character speed level {speed} confirmed.");
-                    break;
+                    if (speedChoice >= 1 && speedChoice <= 10)
+                    {
+                        speed = speedChoice;
+                        Console.WriteLine($"Character speed level {speed} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
             //luck
             while (true)
             {
-                Console.Write("\nEnter character luck (1-10): ");
-                int luckChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character luck (1-10): ");
+                    int luckChoice = int.Parse(Console.ReadLine());
 
-                if (luckChoice >= 1 && luckChoice <= 10)
-                {
-                    luck = luckChoice;
-                    Console.WriteLine($"Character luck level {luck} confirmed.");
-                    break;
+                    if (luckChoice >= 1 && luckChoice <= 10)
+                    {
+                        luck = luckChoice;
+                        Console.WriteLine($"Character luck level {luck} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
             //charisma
             while (true)
             {
-                Console.Write("\nEnter character charisma (1-10): ");
-                int charismaChoice = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("\nEnter character charisma (1-10): ");
+                    int charismaChoice = int.Parse(Console.ReadLine());
 
-                if (charismaChoice >= 1 && charismaChoice <= 10)
-                {
-                    charisma = charismaChoice;
-                    Console.WriteLine($"Character charisma level {charisma} confirmed.");
-                    break;
+                    if (charismaChoice >= 1 && charismaChoice <= 10)
+                    {
+                        charisma = charismaChoice;
+                        Console.WriteLine($"Character charisma level {charisma} confirmed.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Invalid input, try again.");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.Write("Invalid input");
                 }
             }
 
@@ -520,29 +621,6 @@ namespace COMP3AFinalProject
             return new Character(race, clss, gender, age, birthMonth, hairType, hairColor, eyeColor, 
                 skinColor, height, bodyType, tattoos, scarsBirthmarks, personality, temperament, hobbies, 
                 criminalRecord, intelligence, strength, magic, dexterity, speed, luck, charisma, name);
-        }
-
-        public void DisplayAllCharacters()
-        {
-            //foreach (Character in characterList)
-            {
-               // Console.WriteLine(characterList.Name);
-            }
-        }
-
-        public void SearchCharacters()
-        {
-
-        }
-
-        public void DisplayCharacterStats()
-        {
-           //foreach (Character characters in Character)
-            {
-
-            }
-        }
-
-        
+        }        
     }
 }
