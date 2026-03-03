@@ -356,7 +356,7 @@ namespace COMP3AFinalProject
             {
                 try
                 {
-                    Console.Write("\nChoose character personality - 1. open, 2. conscientious, 3. extraverted, 4. agreeable, 5. neurotic (Enter 1-5): ");
+                    Console.Write("\nChoose character personality\n1. open\n2. conscientious\n3. extraverted\n4. agreeable\n5. neurotic\n(Enter 1-5): ");
                     int personalityChoice = int.Parse(Console.ReadLine());
 
                     if (personalityChoice >= 1 && personalityChoice <= 5)

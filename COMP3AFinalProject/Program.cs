@@ -50,7 +50,7 @@ namespace COMP3AFinalProject
                                 break;
 
                             case 4:
-                                Console.Write("***Calculate Totals/Averages***\n\nWhat would you like to calculate?\n1. Party strength average\n2. Total magic points\nEnter choice: ");
+                                Console.Write("***Calculate Totals/Averages***\n\nWhat would you like to calculate?\n1. Average strength\n2. Magic points total\n\nEnter choice: ");
                                 try
                                 {
                                     int choice2 = int.Parse(Console.ReadLine());
@@ -58,13 +58,11 @@ namespace COMP3AFinalProject
                                     switch (choice2)
                                     {
                                         case 1:
-                                            
-
+                                            CalculateAverageStrength(party);
                                             break;
 
                                         case 2:
-                                            
-
+                                            TotalMagicPoints(party);
                                             break;
                                     }
                                 }
@@ -104,6 +102,7 @@ namespace COMP3AFinalProject
         static void SearchCharacters(List<Character> party)
         {
             Console.Write("\nEnter a character name to search: ");
+            
             string searchName = Console.ReadLine().ToLower();
 
             foreach (Character character in party)
@@ -119,16 +118,30 @@ namespace COMP3AFinalProject
             Console.WriteLine("Character not found.");
         }
 
-        
-
-        static void CalculatePartyStrengthAverage(List<Character> party)
+        static void CalculateAverageStrength(List<Character> party)
         {
+            double totalStrength = 0;
 
+            foreach (Character character in party)
+            {
+                totalStrength = totalStrength + character.Strength;
+            }
+
+            double averageStrength = totalStrength / party.Count;  
+
+            Console.WriteLine($"\nParty's average strength: {averageStrength}");
         }
 
-        static void AddPartyMagicPoints(List<Character> party)
+        static void TotalMagicPoints(List<Character> party)
         {
+            int totalMagicPoints = 0;
+            
+            foreach (Character character in party)
+            {
+                totalMagicPoints = totalMagicPoints + character.Magic;
+            }
 
+            Console.WriteLine($"\nParty's total magic: {totalMagicPoints}");
         }
     }
 }
