@@ -22,8 +22,8 @@ namespace COMP3AFinalProject
         public string SkinColor;
         public string Height;
         public int BodyType;
-        public bool Tattoos;
-        public bool ScarsBirthmarks;
+        public bool HasTattoos;
+        public bool HasScars;
         public int PersonalityType;
         public int Temperament;
         public string Hobbies;
@@ -39,7 +39,7 @@ namespace COMP3AFinalProject
 
 
         //constructor
-        public Character(string race, string clss, string gender, int age, 
+        public Character(string race, string type, string gender, int age, 
             int birthMonth, int hairType, string hairColor, string eyeColor,
             string skinColor, string height, int bodyType, bool tattoos, 
             bool scarsBirthmarks, int personality, int temperament, string hobbies, 
@@ -47,7 +47,7 @@ namespace COMP3AFinalProject
             int dexterity, int speed, int luck, int charisma, string name)
         {
             Race = race;
-            Class = clss;
+            Class = type;
             Gender = gender;
             Age = age;
             BirthMonth = birthMonth;
@@ -57,8 +57,8 @@ namespace COMP3AFinalProject
             SkinColor = skinColor;
             Height = height;
             BodyType = bodyType;
-            Tattoos = tattoos;
-            ScarsBirthmarks = scarsBirthmarks;
+            HasTattoos = tattoos;
+            HasScars = scarsBirthmarks;
             PersonalityType = personality;
             Temperament = temperament;
             Hobbies = hobbies;
@@ -74,12 +74,12 @@ namespace COMP3AFinalProject
 
         }
 
-        public void DisplayCharacterStats(List<Character> party)
+        public void DisplayCharacterStats()
         {
             Console.WriteLine("\n***Character Stats***\n");
             Console.WriteLine($"Name: {Name}\nRace: {Race}\nClass: {Class}\nGender: {Gender}\nAge: {Age}");
             Console.WriteLine($"Birth Month: {BirthMonth}\nHair Type: {HairType}\nHair Color: {HairColor}\nEye Color: {EyeColor}\nSkin Color: {SkinColor}");
-            Console.WriteLine($"Height: {Height}\nBody Type: {BodyType}\nTattoos: {Tattoos}\nScars/Birthmarks: {ScarsBirthmarks}\nPersonality Type: {PersonalityType}");
+            Console.WriteLine($"Height: {Height}\nBody Type: {BodyType}\nTattoos: {HasTattoos}\nScars/Birthmarks: {HasScars}\nPersonality Type: {PersonalityType}");
             Console.WriteLine($"Temperament Type: {Temperament}\nHobbies: {Hobbies}\nCriminal Record: {CriminalRecord}\nIntelligence: {Intelligence}\nStrength: {Strength}");
             Console.WriteLine($"Magic: {Magic}\nDexterity: {Dexterity}\nSpeed: {Speed}\nLuck: {Luck}\nCharisma: {Charisma}");
         }
@@ -88,7 +88,7 @@ namespace COMP3AFinalProject
 
         {
             string race;
-            string clss;
+            string type;
             string gender;
             int age;
             int birthMonth;
@@ -127,7 +127,7 @@ namespace COMP3AFinalProject
                 }
                 else
                 {
-                    Console.Write("Invalid input, try again. ");
+                    Console.WriteLine("Invalid input, try again. ");
                 }
             }
 
@@ -135,17 +135,17 @@ namespace COMP3AFinalProject
             while (true)
             {
                 Console.Write("\nChoose character class - knight, monk, thief, mage : ");
-                string classChoice = Console.ReadLine().ToLower();
+                string typeChoice = Console.ReadLine().ToLower();
 
-                if (classChoice == "knight" || classChoice == "monk" || classChoice == "thief" || classChoice == "mage")
+                if (typeChoice == "knight" || typeChoice == "monk" || typeChoice == "thief" || typeChoice == "mage")
                 {
-                    clss = classChoice;
-                    Console.WriteLine($"Character class {clss} confirmed.");
+                    type = typeChoice;
+                    Console.WriteLine($"Character class {type} confirmed.");
                     break;
                 }
                 else
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.WriteLine("Invalid input, try again.");
                 }
             }
 
@@ -163,7 +163,7 @@ namespace COMP3AFinalProject
                 }
                 else
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.WriteLine("Invalid input, try again.");
                 }
             }
 
@@ -183,12 +183,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid integer, try again.");
+                        Console.WriteLine("Invalid integer, try again.");
                     }
                 }
                 catch (FormatException) 
                 {
-                    Console.Write("Invalid input.");
+                    Console.WriteLine("Invalid input.");
                 }
             }
 
@@ -208,12 +208,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input.");
+                    Console.WriteLine("Invalid input.");
                 }
             }
 
@@ -233,12 +233,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -294,12 +294,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -323,7 +323,7 @@ namespace COMP3AFinalProject
                 }
                 else
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.WriteLine("Invalid input, try again.");
                 }
             }
 
@@ -347,7 +347,7 @@ namespace COMP3AFinalProject
                 }
                 else
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.WriteLine("Invalid input, try again.");
                 }
             }
 
@@ -356,7 +356,7 @@ namespace COMP3AFinalProject
             {
                 try
                 {
-                    Console.Write("\nChoose character personality\n1. open\n2. conscientious\n3. extraverted\n4. agreeable\n5. neurotic\n(Enter 1-5): ");
+                    Console.Write("\nChoose character personality:\n1. open\n2. conscientious\n3. extraverted\n4. agreeable\n5. neurotic\n(Enter 1-5): ");
                     int personalityChoice = int.Parse(Console.ReadLine());
 
                     if (personalityChoice >= 1 && personalityChoice <= 5)
@@ -367,7 +367,7 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
@@ -381,7 +381,7 @@ namespace COMP3AFinalProject
             {
                 try
                 {
-                    Console.Write("\nChoose character temperament - 1. sanguine, 2. choleric, 3. phlegmatic, 4. melancholic (Enter 1-4): ");
+                    Console.Write("\nChoose character temperament:\n1. sanguine\n2. choleric\n3. phlegmatic\n4. melancholic\n(Enter 1-4): ");
                     int temperamentChoice = int.Parse(Console.ReadLine());
 
                     if (temperamentChoice >= 1 && temperamentChoice <= 4)
@@ -392,19 +392,19 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Invalid input");
+                    Console.WriteLine("Invalid input.");
                 }
             }
 
             //hobbies
             while (true)
             {
-                Console.Write("\nEnter character hobbies (writing, painting, fishing, baking, etc.): ");
+                Console.WriteLine("\nEnter character hobbies (writing, painting, fishing, baking, etc.): ");
                 hobbies = Console.ReadLine();
                 Console.WriteLine($"Character hobbies {hobbies} confirmed.");
                 break;
@@ -430,7 +430,7 @@ namespace COMP3AFinalProject
                 }
                 else
                 {
-                    Console.Write("Invalid input, try again.");
+                    Console.WriteLine("Invalid input, try again.");
                 }
             }
 
@@ -450,12 +450,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                        Console.Write("Invalid input.");
+                        Console.WriteLine("Invalid input.");
                 }
             }
 
@@ -475,12 +475,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -500,7 +500,7 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
@@ -525,12 +525,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -550,12 +550,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -575,12 +575,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -600,12 +600,12 @@ namespace COMP3AFinalProject
                     }
                     else
                     {
-                        Console.Write("Invalid input, try again.");
+                        Console.WriteLine("Invalid input, try again.");
                     }
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input");
+                    Console.WriteLine("Invalid input");
                 }
             }
 
@@ -618,7 +618,7 @@ namespace COMP3AFinalProject
                 break;
             }
 
-            return new Character(race, clss, gender, age, birthMonth, hairType, hairColor, eyeColor, 
+            return new Character(race, type, gender, age, birthMonth, hairType, hairColor, eyeColor, 
                 skinColor, height, bodyType, tattoos, scarsBirthmarks, personality, temperament, hobbies, 
                 criminalRecord, intelligence, strength, magic, dexterity, speed, luck, charisma, name);
         }        

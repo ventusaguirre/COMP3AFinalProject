@@ -19,7 +19,7 @@ namespace COMP3AFinalProject
 
             DisplayMenu();
 
-            Character char1 = new Character("faerie", "mage", "NB", 27, 3, 7, "green", "brown", "brown", "short", 3, true, true, 4, 1, "playing guitar", true, 9, 6, 8, 7, 5, 7, 6, "Ventus");
+            Character char1 = new Character("faerie", "mage", "NB", 27, 3, 7, "green", "brown", "brown", "short", 3, true, true, 4, 1, "playing guitar", true, 7, 6, 10, 8, 5, 9, 7, "Ventus");
 
             List<Character> party = new List<Character>();
             party.AddRange(new List<Character>() {char1});
@@ -35,22 +35,22 @@ namespace COMP3AFinalProject
                         switch (choice)
                         {
                             case 1:
-                                Console.WriteLine("\n***New Character Creation***");
+                                Console.WriteLine("\n\n***New Character Creation***");
                                 party.Add(Character.CreateCharacter()); 
                                 break;
 
                             case 2:
-                                Console.WriteLine("\n***Current Character List***\n");
+                                Console.WriteLine("\n\n***Current Character List***\n");
                                 DisplayAllCharacters(party);
                                 break;
 
                             case 3:
-                                Console.WriteLine("***Display Character Stats***");
+                                Console.WriteLine("\n\n***Display Character Stats***");
                                 SearchCharacters(party);
                                 break;
 
                             case 4:
-                                Console.Write("***Calculate Totals/Averages***\n\nWhat would you like to calculate?\n1. Average strength\n2. Magic points total\n\nEnter choice: ");
+                                Console.Write("\n\n***Calculate Totals/Averages***\n\nWhat would you like to calculate?\n1. Average strength\n2. Magic points total\n\nEnter choice: ");
                                 try
                                 {
                                     int choice2 = int.Parse(Console.ReadLine());
@@ -77,17 +77,17 @@ namespace COMP3AFinalProject
                                 Environment.Exit(0);
                                 break;
                         }
+                        
+                        DisplayMenu();
                     }
                     else
                     {
-                        Console.Write("Invalid integer. Enter choice: ");
-                    }
-                    
-                    DisplayMenu();
+                        Console.Write("\nInvalid integer. Enter choice: ");
+                    }     
                 }
                 catch (FormatException)
                 {
-                    Console.Write("Invalid input. Enter choice: ");
+                    Console.Write("\nInvalid input. Enter choice: ");
                 }
             }
         }
@@ -110,7 +110,7 @@ namespace COMP3AFinalProject
                 if (character.Name.ToLower() == searchName)
                 {
                     Console.WriteLine($"\nCharacter {character.Name} found!");
-                    character.DisplayCharacterStats(party);
+                    character.DisplayCharacterStats();
                     return;
                 }
             }
