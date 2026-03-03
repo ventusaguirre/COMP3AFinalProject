@@ -207,7 +207,7 @@ namespace COMP3AFinalProject
                 }
                 else
                 {
-                    Console.Write("Invalid input. Try again: ");
+                    Console.Write("Invalid input, try again.");
                 }
             }
 
@@ -232,7 +232,7 @@ namespace COMP3AFinalProject
             //skin color
             while (true)
             {
-                Console.Write("Enter character skin color (light, dark, tan, green, etc.): ");
+                Console.Write("\nEnter character skin color (light, dark, tan, green, etc.): ");
                 skinColor = Console.ReadLine();
                 Console.WriteLine($"Character skin color {skinColor} confirmed.");
                 break;
@@ -241,9 +241,279 @@ namespace COMP3AFinalProject
             //height
             while (true)
             {
-                Console.Write("Enter character height (tall, med, short");
+                Console.Write("\nEnter character height (tall, med, short): ");
                 height = Console.ReadLine();
                 Console.WriteLine($"Character height {height} confirmed.");
+                break;
+            }
+
+            //body type
+            while (true)
+            {
+                Console.Write("\nChoose character body type (Enter 1-5): ");
+                int bodyTypeChoice = int.Parse(Console.ReadLine());
+
+                if (bodyTypeChoice >= 1 && bodyTypeChoice <= 5)
+                {
+                    bodyType = bodyTypeChoice;
+                    Console.WriteLine($"Character body type {bodyType} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //tattoos
+            while (true)
+            {
+                Console.Write("\nTattoos? (T/F): ");
+                string tattooChoice = Console.ReadLine().ToUpper();
+
+                if (tattooChoice == "T")
+                {
+                    tattoos = true;
+                    Console.WriteLine($"Character has tattoos - {tattoos}.");
+                    break;
+                }
+                else if (tattooChoice == "F")
+                {
+                    tattoos = false;
+                    Console.WriteLine($"Character has tattoos - {tattoos}.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //scars/birthmarks
+            while (true)
+            {
+                Console.Write("\nScars/birthmarks? (T/F): ");
+                string scarsBirthmarkChoice = Console.ReadLine().ToUpper();
+
+                if (scarsBirthmarkChoice == "T")
+                {
+                    scarsBirthmarks = true;
+                    Console.WriteLine($"Character has scars/birthmarks - {scarsBirthmarks}.");
+                    break;
+                }
+                else if (scarsBirthmarkChoice == "F")
+                {
+                    scarsBirthmarks = false;
+                    Console.WriteLine($"Character has scars/birthmarks - {scarsBirthmarks}.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //personality type
+            while (true)
+            {
+                Console.Write("\nChoose character personality - 1. open, 2. conscientious, 3. extraverted, 4. agreeable, 5. neurotic (Enter 1-5): ");
+                int personalityChoice = int.Parse(Console.ReadLine());
+
+                if (personalityChoice >= 1 && personalityChoice <= 5)
+                {
+                    personality = personalityChoice;
+                    Console.WriteLine($"Character personality type {personality} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //temperament
+            while (true)
+            {
+                Console.Write("\nChoose character temperament - 1. sanguine, 2. choleric, 3. phlegmatic, 4. melancholic (Enter 1-4): ");
+                int temperamentChoice = int.Parse(Console.ReadLine());
+
+                if (temperamentChoice >= 1 && temperamentChoice <= 4)
+                {
+                    temperament = temperamentChoice;
+                    Console.WriteLine($"Character temperament type {temperament} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //hobbies
+            while (true)
+            {
+                Console.Write("\nEnter character hobbies (writing, painting, fishing, baking, etc.): ");
+                hobbies = Console.ReadLine();
+                Console.WriteLine($"Character hobbies {hobbies} confirmed.");
+                break;
+            }
+
+            //criminal record
+            while (true)
+            {
+                Console.Write("\nCriminal record? (T/F): ");
+                string crimRecordChoice = Console.ReadLine().ToUpper();
+
+                if (crimRecordChoice == "T")
+                {
+                    criminalRecord = true;
+                    Console.WriteLine($"Character has criminal record - {criminalRecord}.");
+                    break;
+                }
+                else if (crimRecordChoice == "F")
+                {
+                    criminalRecord = false;
+                    Console.WriteLine($"Character has scars/birthmarks - {criminalRecord}.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //intelligence
+            while (true)
+            {
+                Console.Write("\nEnter character intelligence (1-10): ");
+                int intelligenceChoice = int.Parse(Console.ReadLine());
+
+                if (intelligenceChoice >= 1 && intelligenceChoice <= 10)
+                {
+                    intelligence = intelligenceChoice;
+                    Console.WriteLine($"Character intelligence level {intelligence} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //strength
+            while (true)
+            {
+                Console.Write("\nEnter character strength (1-10): ");
+                int strengthChoice = int.Parse(Console.ReadLine());
+
+                if (strengthChoice >= 1 && strengthChoice <= 10)
+                {
+                    strength = strengthChoice;
+                    Console.WriteLine($"Character strength level {strength} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            // magic
+            while (true)
+            {
+                Console.Write("\nEnter character magic (1-10): ");
+                int magicChoice = int.Parse(Console.ReadLine());
+
+                if (magicChoice >= 1 && magicChoice <= 10)
+                {
+                    magic = magicChoice;
+                    Console.WriteLine($"Character magic level {magic} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //dexterity
+            while (true)
+            {
+                Console.Write("\nEnter character dexterity (1-10): ");
+                int dexterityChoice = int.Parse(Console.ReadLine());
+
+                if (dexterityChoice >= 1 && dexterityChoice <= 10)
+                {
+                    dexterity = dexterityChoice;
+                    Console.WriteLine($"Character dexterity level {dexterity} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //speed
+            while (true)
+            {
+                Console.Write("\nEnter character speed (1-10): ");
+                int speedChoice = int.Parse(Console.ReadLine());
+
+                if (speedChoice >= 1 && speedChoice <= 10)
+                {
+                    speed = speedChoice;
+                    Console.WriteLine($"Character speed level {speed} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //luck
+            while (true)
+            {
+                Console.Write("\nEnter character luck (1-10): ");
+                int luckChoice = int.Parse(Console.ReadLine());
+
+                if (luckChoice >= 1 && luckChoice <= 10)
+                {
+                    luck = luckChoice;
+                    Console.WriteLine($"Character luck level {luck} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //charisma
+            while (true)
+            {
+                Console.Write("\nEnter character charisma (1-10): ");
+                int charismaChoice = int.Parse(Console.ReadLine());
+
+                if (charismaChoice >= 1 && charismaChoice <= 10)
+                {
+                    charisma = charismaChoice;
+                    Console.WriteLine($"Character charisma level {charisma} confirmed.");
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input, try again.");
+                }
+            }
+
+            //name
+            while (true)
+            {
+                Console.Write("\nEnter character name: ");
+                name = Console.ReadLine();
+                Console.WriteLine($"\nNew character {name} has been created!");
                 break;
             }
 
@@ -254,9 +524,9 @@ namespace COMP3AFinalProject
 
         public void DisplayAllCharacters()
         {
-            //foreach (Character characters in Character)
+            //foreach (Character in characterList)
             {
-                //Console.WriteLine($"{Name}");
+               // Console.WriteLine(characterList.Name);
             }
         }
 
